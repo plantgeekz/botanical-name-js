@@ -3,6 +3,7 @@
 [![Tests](https://github.com/plantgeekz/botanical-name-js/actions/workflows/tests.yml/badge.svg)](https://github.com/plantgeekz/botanical-name-js/actions/workflows/tests.yml)
 [![npm](https://img.shields.io/npm/v/@plantgeekz_com/botanical-name.svg)](https://www.npmjs.com/package/@plantgeekz_com/botanical-name)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22765112.svg)](https://doi.org/10.5281/zenodo.22765112)
 
 Parse, normalize and format botanical plant names in JavaScript and TypeScript -
 hybrids, infraspecific ranks, authors, cultivars, cultivar groups and trade
@@ -157,6 +158,12 @@ package and copied here with `npm run sync-fixtures`. Before release both
 implementations were run over 30,569 real names from the PlantGeekz taxonomy (species
 with authors and cultivars): identical output, and every clean name came back
 unchanged.
+
+## Citing
+
+If you use botanical-name in research, please cite it via its DOI:
+[10.5281/zenodo.22765112](https://doi.org/10.5281/zenodo.22765112) (all versions). GitHub's "Cite this repository"
+button gives the citation in APA and BibTeX.
 
 ## License
 

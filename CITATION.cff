@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+type: software
+title: "botanical-name (JavaScript/TypeScript): parse, normalize and format botanical plant names"
+abstract: >-
+  Parse, normalize and format botanical plant names following the ICN and
+  ICNCP: hybrids, infraspecific ranks, authors, cultivar groups, trade
+  designations and cultivars, with correct italics in HTML. Zero dependencies.
+authors:
+  - name: PlantGeekz
+    website: "https://plantgeekz.com"
+    email: hi@plantgeekz.com
+    country: DK
+version: 0.1.0
+date-released: "2026-09-15"
+license: MIT
+doi: 10.5281/zenodo.22765112
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22765112
+    description: All versions
+  - type: doi
+    value: 10.5281/zenodo.22765113
+    description: Version 0.1.0
+repository-code: "https://github.com/plantgeekz/botanical-name-js"
+url: "https://plantgeekz.com"
+keywords:
+  - botany
+  - plants
+  - taxonomy
+  - nomenclature
+  - scientific names
+  - cultivar
+  - ICN
+  - ICNCP
+  - TypeScript
