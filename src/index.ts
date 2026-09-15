@@ -1,7 +1,7 @@
 /**
  * Parse, normalize and format botanical plant names.
  *
- *     import { parse, format, toHtml } from '@plantgeekz/botanical-name';
+ *     import { parse, format, toHtml } from '@plantgeekz_com/botanical-name';
  *
  *     const name = parse('Hydrangea x macrophylla ssp. serrata cv. Bluebird');
  *     format(name);  // Hydrangea ×macrophylla subsp. serrata 'Bluebird'

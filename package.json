@@ -1,5 +1,5 @@
 {
-  "name": "@plantgeekz/botanical-name",
+  "name": "@plantgeekz_com/botanical-name",
   "version": "0.1.0",
   "description": "Parse, normalize and format botanical plant names (ICN + ICNCP): hybrids, infraspecific ranks, authors, cultivars, groups and correct italics. Zero dependencies, runs in Node and the browser.",
   "keywords": [

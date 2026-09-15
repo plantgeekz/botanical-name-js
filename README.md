@@ -1,7 +1,7 @@
 # Botanical Name
 
 [![Tests](https://github.com/plantgeekz/botanical-name-js/actions/workflows/tests.yml/badge.svg)](https://github.com/plantgeekz/botanical-name-js/actions/workflows/tests.yml)
-[![npm](https://img.shields.io/npm/v/@plantgeekz/botanical-name.svg)](https://www.npmjs.com/package/@plantgeekz/botanical-name)
+[![npm](https://img.shields.io/npm/v/@plantgeekz_com/botanical-name.svg)](https://www.npmjs.com/package/@plantgeekz_com/botanical-name)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 Parse, normalize and format botanical plant names in JavaScript and TypeScript -
@@ -15,7 +15,7 @@ identification and collection app. Also available for PHP as
 packages run the same test fixtures and give byte-identical results.
 
 ```ts
-import { parse, format, toHtml, slug, key } from '@plantgeekz/botanical-name';
+import { parse, format, toHtml, slug, key } from '@plantgeekz_com/botanical-name';
 
 const name = parse('hydrangea x macrophylla ssp. serrata cv. Bluebird');
 
@@ -40,7 +40,7 @@ also runs in the browser, focused on getting names clean and displayed correctly
 ## Install
 
 ```bash
-npm install @plantgeekz/botanical-name
+npm install @plantgeekz_com/botanical-name
 ```
 
 Ships ES modules and CommonJS with TypeScript types. Node 18 or newer, or any modern
