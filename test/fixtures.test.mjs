@@ -83,6 +83,12 @@ describe('api', () => {
     ]);
   });
 
+  it('jsr.json and package.json have the same version', () => {
+    const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
+    const jsr = JSON.parse(readFileSync(new URL('../jsr.json', import.meta.url), 'utf8'));
+    assert.equal(jsr.version, pkg.version);
+  });
+
   it('CommonJS build works', () => {
     const cjs = createRequire(import.meta.url)('../dist/cjs/index.js');
     assert.equal(cjs.format(cjs.parse('mentha x piperita')), 'Mentha ×piperita');

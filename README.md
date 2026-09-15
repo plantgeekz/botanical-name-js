@@ -44,6 +44,12 @@ also runs in the browser, focused on getting names clean and displayed correctly
 npm install @plantgeekz_com/botanical-name
 ```
 
+Also on [JSR](https://jsr.io/@plantgeekz/botanical-name) for Deno and Bun:
+
+```bash
+deno add jsr:@plantgeekz/botanical-name
+```
+
 Ships ES modules and CommonJS with TypeScript types. Node 18 or newer, or any modern
 browser.
 
