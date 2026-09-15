@@ -1,0 +1,65 @@
+{
+  "name": "@plantgeekz/botanical-name",
+  "version": "0.1.0",
+  "description": "Parse, normalize and format botanical plant names (ICN + ICNCP): hybrids, infraspecific ranks, authors, cultivars, groups and correct italics. Zero dependencies, runs in Node and the browser.",
+  "keywords": [
+    "botany",
+    "botanical",
+    "plant",
+    "plants",
+    "taxonomy",
+    "scientific-name",
+    "nomenclature",
+    "cultivar",
+    "icn",
+    "icncp",
+    "parser",
+    "gardening"
+  ],
+  "homepage": "https://plantgeekz.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plantgeekz/botanical-name-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/plantgeekz/botanical-name-js/issues"
+  },
+  "license": "MIT",
+  "author": "PlantGeekz (https://plantgeekz.com)",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && node scripts/cjs-package.mjs",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "sync-fixtures": "node scripts/fixtures.mjs sync",
+    "check-fixtures": "node scripts/fixtures.mjs check",
+    "prepublishOnly": "npm run check-fixtures && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.0"
+  }
+}

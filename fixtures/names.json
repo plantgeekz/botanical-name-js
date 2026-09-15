@@ -1,0 +1,394 @@
+[
+  {
+    "note": "Binomial",
+    "input": "Passiflora edulis",
+    "expect": {"genus": "Passiflora", "epithet": "edulis", "authorship": null, "infraspecific": [], "cultivar": null, "warnings": []},
+    "text": "Passiflora edulis",
+    "html": "<i>Passiflora edulis</i>",
+    "slug": "passiflora-edulis",
+    "key": "passiflora edulis"
+  },
+  {
+    "note": "Binomial with author",
+    "input": "Passiflora edulis Sims",
+    "expect": {"genus": "Passiflora", "epithet": "edulis", "authorship": "Sims"},
+    "text": "Passiflora edulis",
+    "textWithAuthors": "Passiflora edulis Sims",
+    "htmlWithAuthors": "<i>Passiflora edulis</i> Sims"
+  },
+  {
+    "note": "Forma with authors on both levels",
+    "input": "Passiflora edulis Sims f. flavicarpa O.Deg.",
+    "expect": {"authorship": "Sims", "infraspecific": [{"rank": "f.", "epithet": "flavicarpa", "authorship": "O.Deg."}]},
+    "text": "Passiflora edulis f. flavicarpa",
+    "textWithAuthors": "Passiflora edulis Sims f. flavicarpa O.Deg.",
+    "html": "<i>Passiflora edulis</i> f. <i>flavicarpa</i>",
+    "htmlWithAuthors": "<i>Passiflora edulis</i> Sims f. <i>flavicarpa</i> O.Deg."
+  },
+  {
+    "note": "Basionym author in parentheses",
+    "input": "Picea abies (L.) H.Karst.",
+    "expect": {"genus": "Picea", "epithet": "abies", "authorship": "(L.) H.Karst.", "group": null},
+    "textWithAuthors": "Picea abies (L.) H.Karst."
+  },
+  {
+    "note": "Subspecies with authors, 'Turra' is an author, not an epithet",
+    "input": "Pinus mugo Turra subsp. uncinata (DC.) Domin",
+    "expect": {"epithet": "mugo", "authorship": "Turra", "infraspecific": [{"rank": "subsp.", "epithet": "uncinata", "authorship": "(DC.) Domin"}]},
+    "text": "Pinus mugo subsp. uncinata"
+  },
+  {
+    "note": "ssp. is normalized to subsp.",
+    "input": "Rosa canina ssp. canina",
+    "expect": {"infraspecific": [{"rank": "subsp.", "epithet": "canina", "authorship": null}], "warnings": ["rank_normalized"]},
+    "text": "Rosa canina subsp. canina"
+  },
+  {
+    "note": "Rank without a dot",
+    "input": "Brassica oleracea var capitata L.",
+    "expect": {"infraspecific": [{"rank": "var.", "epithet": "capitata", "authorship": "L."}], "warnings": ["rank_normalized"]},
+    "textWithAuthors": "Brassica oleracea var. capitata L."
+  },
+  {
+    "note": "f. at the end is the author's filius, not a rank",
+    "input": "Aloe vera (L.) Burm. f.",
+    "expect": {"epithet": "vera", "authorship": "(L.) Burm. f.", "infraspecific": []}
+  },
+  {
+    "note": "f. followed by an epithet is a rank; author with a space inside",
+    "input": "Acer palmatum Thunb. f. atropurpureum (Van Houtte) Schwer.",
+    "expect": {"authorship": "Thunb.", "infraspecific": [{"rank": "f.", "epithet": "atropurpureum", "authorship": "(Van Houtte) Schwer."}]}
+  },
+  {
+    "note": "Author team with commas and ampersand",
+    "input": "Solanum lycopersicum var. cerasiforme (Dunal) Spooner, G.J.Anderson & R.K.Jansen",
+    "expect": {"infraspecific": [{"rank": "var.", "epithet": "cerasiforme", "authorship": "(Dunal) Spooner, G.J.Anderson & R.K.Jansen"}]},
+    "htmlWithAuthors": "<i>Solanum lycopersicum</i> var. <i>cerasiforme</i> (Dunal) Spooner, G.J.Anderson &amp; R.K.Jansen"
+  },
+  {
+    "note": "Hyphenated epithet",
+    "input": "Symphyotrichum novae-angliae (L.) G.L.Nesom",
+    "expect": {"epithet": "novae-angliae", "authorship": "(L.) G.L.Nesom"},
+    "slug": "symphyotrichum-novae-angliae"
+  },
+  {
+    "note": "Genus with author only",
+    "input": "Passiflora L.",
+    "expect": {"genus": "Passiflora", "epithet": null, "authorship": "L."},
+    "text": "Passiflora",
+    "html": "<i>Passiflora</i>"
+  },
+  {
+    "note": "Cultivar without a species",
+    "input": "Hosta 'Blue Angel'",
+    "expect": {"genus": "Hosta", "epithet": null, "cultivar": "Blue Angel", "warnings": []},
+    "text": "Hosta 'Blue Angel'",
+    "html": "<i>Hosta</i> &#039;Blue Angel&#039;",
+    "slug": "hosta-blue-angel",
+    "key": "hosta blue angel"
+  },
+  {
+    "note": "Cultivar of a species with author",
+    "input": "Magnolia grandiflora L. 'Little Gem'",
+    "expect": {"epithet": "grandiflora", "authorship": "L.", "cultivar": "Little Gem"},
+    "text": "Magnolia grandiflora 'Little Gem'",
+    "textWithAuthors": "Magnolia grandiflora L. 'Little Gem'",
+    "html": "<i>Magnolia grandiflora</i> &#039;Little Gem&#039;"
+  },
+  {
+    "note": "Cultivar after a parenthesised author",
+    "input": "Hosta sieboldiana (Hook.) Engl. 'Elegans'",
+    "expect": {"epithet": "sieboldiana", "authorship": "(Hook.) Engl.", "cultivar": "Elegans"},
+    "text": "Hosta sieboldiana 'Elegans'"
+  },
+  {
+    "note": "Apostrophe inside the cultivar name",
+    "input": "Hemerocallis 'Buddha's Temple'",
+    "expect": {"cultivar": "Buddha's Temple"},
+    "text": "Hemerocallis 'Buddha's Temple'",
+    "slug": "hemerocallis-buddhas-temple",
+    "key": "hemerocallis buddhas temple"
+  },
+  {
+    "note": "Apostrophe inside, short word first",
+    "input": "Rhododendron 'O'Hara'",
+    "expect": {"cultivar": "O'Hara"}
+  },
+  {
+    "note": "Word-final apostrophe inside a cultivar",
+    "input": "Dahlia 'Rees' Choice'",
+    "expect": {"cultivar": "Rees' Choice"},
+    "text": "Dahlia 'Rees' Choice'"
+  },
+  {
+    "note": "Dropped-g apostrophe inside a cultivar",
+    "input": "Hemerocallis 'Burnin' Down the House'",
+    "expect": {"cultivar": "Burnin' Down the House"}
+  },
+  {
+    "note": "Quoted letter inside a cultivar",
+    "input": "Dahlia 'Hugs 'N' Kisses'",
+    "expect": {"cultivar": "Hugs 'N' Kisses"},
+    "slug": "dahlia-hugs-n-kisses"
+  },
+  {
+    "note": "Apostrophe before a space inside a cultivar",
+    "input": "Hemerocallis 'Tam O' Shanter'",
+    "expect": {"cultivar": "Tam O' Shanter"}
+  },
+  {
+    "note": "Backtick used as apostrophe",
+    "input": "Hemerocallis 'Queen Charlotte`s Gown'",
+    "expect": {"cultivar": "Queen Charlotte's Gown", "warnings": ["quotes_normalized"]}
+  },
+  {
+    "note": "Curly quotes (iOS smart quotes)",
+    "input": "Hosta ‘Blue Angel’",
+    "expect": {"cultivar": "Blue Angel", "warnings": ["quotes_normalized"]},
+    "text": "Hosta 'Blue Angel'"
+  },
+  {
+    "note": "Double quotes",
+    "input": "Hosta \"Blue Angel\"",
+    "expect": {"cultivar": "Blue Angel", "warnings": ["quotes_normalized"]},
+    "text": "Hosta 'Blue Angel'"
+  },
+  {
+    "note": "cv. marker",
+    "input": "Hosta cv. Blue Angel",
+    "expect": {"epithet": null, "cultivar": "Blue Angel", "warnings": ["cultivar_marker_normalized"]},
+    "text": "Hosta 'Blue Angel'"
+  },
+  {
+    "note": "Cultivar with a period and lowercase words",
+    "input": "Camellia japonica L. 'Dr. King'",
+    "expect": {"authorship": "L.", "cultivar": "Dr. King"}
+  },
+  {
+    "note": "Lowercase word inside a cultivar",
+    "input": "Tulipa 'Queen of Night'",
+    "expect": {"cultivar": "Queen of Night"},
+    "slug": "tulipa-queen-of-night"
+  },
+  {
+    "note": "Diacritics in a cultivar",
+    "input": "Echeveria 'Perle von Nürnberg'",
+    "expect": {"cultivar": "Perle von Nürnberg"},
+    "slug": "echeveria-perle-von-nurnberg",
+    "key": "echeveria perle von nurnberg"
+  },
+  {
+    "note": "Diaeresis in a genus",
+    "input": "Cephaëlis ipecacuanha",
+    "expect": {"genus": "Cephaëlis", "epithet": "ipecacuanha"},
+    "slug": "cephaelis-ipecacuanha",
+    "key": "cephaelis ipecacuanha"
+  },
+  {
+    "note": "Nothospecies with multiplication sign",
+    "input": "Hydrangea ×macrophylla",
+    "expect": {"epithet": "macrophylla", "speciesHybrid": true, "warnings": []},
+    "text": "Hydrangea ×macrophylla",
+    "html": "<i>Hydrangea</i> ×<i>macrophylla</i>",
+    "slug": "hydrangea-macrophylla",
+    "key": "hydrangea macrophylla"
+  },
+  {
+    "note": "Nothospecies written with x and a space",
+    "input": "Mentha x piperita L.",
+    "expect": {"epithet": "piperita", "speciesHybrid": true, "authorship": "L.", "warnings": ["hybrid_marker_normalized"]},
+    "textWithAuthors": "Mentha ×piperita L."
+  },
+  {
+    "note": "Nothospecies with a spaced multiplication sign",
+    "input": "Saxifraga × urbium D.A.Webb",
+    "expect": {"epithet": "urbium", "speciesHybrid": true, "authorship": "D.A.Webb", "warnings": []},
+    "text": "Saxifraga ×urbium"
+  },
+  {
+    "note": "Nothogenus",
+    "input": "× Chitalpa tashkentensis",
+    "expect": {"genus": "Chitalpa", "genusHybrid": true, "epithet": "tashkentensis"},
+    "text": "×Chitalpa tashkentensis",
+    "html": "×<i>Chitalpa tashkentensis</i>",
+    "slug": "chitalpa-tashkentensis"
+  },
+  {
+    "note": "Nothogenus written with x",
+    "input": "x Chitalpa tashkentensis",
+    "expect": {"genus": "Chitalpa", "genusHybrid": true, "warnings": ["hybrid_marker_normalized"]},
+    "text": "×Chitalpa tashkentensis"
+  },
+  {
+    "note": "Graft-chimaera",
+    "input": "+ Crataegomespilus dardarii",
+    "expect": {"genus": "Crataegomespilus", "graftChimaera": true, "genusHybrid": false, "epithet": "dardarii"},
+    "text": "+Crataegomespilus dardarii",
+    "html": "+<i>Crataegomespilus dardarii</i>",
+    "key": "crataegomespilus dardarii"
+  },
+  {
+    "note": "Nothosubspecies",
+    "input": "Mentha ×piperita nothosubsp. citrata",
+    "expect": {"speciesHybrid": true, "infraspecific": [{"rank": "nothosubsp.", "epithet": "citrata", "authorship": null}]},
+    "html": "<i>Mentha</i> ×<i>piperita</i> nothosubsp. <i>citrata</i>"
+  },
+  {
+    "note": "Hybrid cultivar",
+    "input": "Paeonia ×suffruticosa 'Shimanishiki'",
+    "expect": {"speciesHybrid": true, "cultivar": "Shimanishiki"},
+    "html": "<i>Paeonia</i> ×<i>suffruticosa</i> &#039;Shimanishiki&#039;"
+  },
+  {
+    "note": "Hybrid formula with abbreviated genus",
+    "input": "Salix alba × S. fragilis",
+    "expect": {"genus": "Salix", "formula": [{"genus": "Salix", "epithet": "alba"}, {"genus": "S.", "epithet": "fragilis", "warnings": ["abbreviated_genus"]}]},
+    "text": "Salix alba × S. fragilis",
+    "html": "<i>Salix alba</i> × <i>S. fragilis</i>"
+  },
+  {
+    "note": "Hybrid formula with x and authors",
+    "input": "Quercus robur L. x Q. petraea (Matt.) Liebl.",
+    "expect": {"warnings": ["hybrid_marker_normalized"], "formula": [{"epithet": "robur", "authorship": "L."}, {"genus": "Q.", "epithet": "petraea", "authorship": "(Matt.) Liebl."}]},
+    "text": "Quercus robur × Q. petraea",
+    "textWithAuthors": "Quercus robur L. × Q. petraea (Matt.) Liebl."
+  },
+  {
+    "note": "Cultivar group",
+    "input": "Brassica oleracea Capitata Group",
+    "expect": {"epithet": "oleracea", "group": "Capitata", "authorship": null},
+    "text": "Brassica oleracea Capitata Group",
+    "html": "<i>Brassica oleracea</i> Capitata Group"
+  },
+  {
+    "note": "Group in parentheses with a cultivar",
+    "input": "Brassica oleracea (Capitata Group) 'Brunswick'",
+    "expect": {"group": "Capitata", "cultivar": "Brunswick"},
+    "text": "Brassica oleracea Capitata Group 'Brunswick'",
+    "slug": "brassica-oleracea-capitata-group-brunswick"
+  },
+  {
+    "note": "Bare parenthesised group next to a cultivar (seed catalogues)",
+    "input": "Brassica oleracea (Capitata) 'Brunswick'",
+    "expect": {"group": "Capitata", "cultivar": "Brunswick", "authorship": null, "warnings": ["group_inferred"]},
+    "text": "Brassica oleracea Capitata Group 'Brunswick'"
+  },
+  {
+    "note": "A lone parenthesised name is an (incomplete) author, not a group",
+    "input": "Cyathea minervae (Lehnert)",
+    "expect": {"epithet": "minervae", "authorship": "(Lehnert)", "group": null, "warnings": []},
+    "textWithAuthors": "Cyathea minervae (Lehnert)"
+  },
+  {
+    "note": "Apostrophe in an author is not a cultivar",
+    "input": "Prometheum serpentinicum (Werderm.) 't Hart",
+    "expect": {"authorship": "(Werderm.) 't Hart", "cultivar": null},
+    "textWithAuthors": "Prometheum serpentinicum (Werderm.) 't Hart"
+  },
+  {
+    "note": "Lowercase author particles",
+    "input": "Draba obconica (de Bary ex F.Rosen) Beck",
+    "expect": {"authorship": "(de Bary ex F.Rosen) Beck", "infraspecific": []}
+  },
+  {
+    "note": "Group directly after the genus",
+    "input": "Hosta Tardiana Group 'Halcyon'",
+    "expect": {"genus": "Hosta", "epithet": null, "group": "Tardiana", "cultivar": "Halcyon"},
+    "text": "Hosta Tardiana Group 'Halcyon'"
+  },
+  {
+    "note": "Trade designation",
+    "input": "Rosa Flower Carpet® 'Noare'",
+    "expect": {"genus": "Rosa", "tradeName": "Flower Carpet", "cultivar": "Noare", "epithet": null},
+    "text": "Rosa Flower Carpet 'Noare'",
+    "html": "<i>Rosa</i> <span class=\"trade-designation\">Flower Carpet</span> &#039;Noare&#039;"
+  },
+  {
+    "note": "Lowercase input",
+    "input": "  passiflora   edulis  ",
+    "expect": {"genus": "Passiflora", "epithet": "edulis", "warnings": ["case_normalized"]},
+    "text": "Passiflora edulis"
+  },
+  {
+    "note": "Uppercase input (CSV exports)",
+    "input": "PASSIFLORA EDULIS",
+    "expect": {"genus": "Passiflora", "epithet": "edulis", "warnings": ["case_normalized"]},
+    "text": "Passiflora edulis"
+  },
+  {
+    "note": "Unspecified species",
+    "input": "Hosta sp.",
+    "expect": {"genus": "Hosta", "epithet": null, "warnings": ["species_unspecified"]},
+    "text": "Hosta"
+  },
+  {
+    "note": "Trinomial without a rank marker",
+    "input": "Rosa canina dumalis",
+    "expect": {"epithet": "canina", "infraspecific": [{"rank": null, "epithet": "dumalis", "authorship": null}], "warnings": ["rank_missing"]},
+    "text": "Rosa canina dumalis"
+  },
+  {
+    "note": "Everything at once",
+    "input": "Hydrangea x macrophylla ssp. serrata cv. Bluebird",
+    "expect": {"speciesHybrid": true, "infraspecific": [{"rank": "subsp.", "epithet": "serrata", "authorship": null}], "cultivar": "Bluebird", "warnings": ["cultivar_marker_normalized", "hybrid_marker_normalized", "rank_normalized"]},
+    "text": "Hydrangea ×macrophylla subsp. serrata 'Bluebird'",
+    "html": "<i>Hydrangea</i> ×<i>macrophylla</i> subsp. <i>serrata</i> &#039;Bluebird&#039;",
+    "slug": "hydrangea-macrophylla-subsp-serrata-bluebird",
+    "key": "hydrangea macrophylla subsp. serrata bluebird"
+  },
+  {
+    "note": "Typographic quotes option",
+    "input": "Hemerocallis 'Buddha's Temple'",
+    "textTypographic": "Hemerocallis ‘Buddha’s Temple’"
+  },
+  {
+    "note": "Dangling hybrid sign",
+    "input": "Rosa x",
+    "expect": {"genus": "Rosa", "epithet": null, "authorship": null, "warnings": ["stray_characters_removed"]},
+    "text": "Rosa"
+  },
+  {
+    "note": "Dangling hybrid sign after an author",
+    "input": "Rosa canina L. ×",
+    "expect": {"epithet": "canina", "authorship": "L.", "warnings": ["stray_characters_removed"]},
+    "textWithAuthors": "Rosa canina L."
+  },
+  {
+    "note": "Unmatched quotes are dropped",
+    "input": "Rosa canina ''",
+    "expect": {"epithet": "canina", "authorship": null, "cultivar": null, "warnings": ["stray_characters_removed"]},
+    "text": "Rosa canina"
+  },
+  {
+    "note": "A capital X inside a cultivar is not a hybrid formula",
+    "input": "Hemerocallis 'Longfields X Factor'",
+    "expect": {"cultivar": "Longfields X Factor", "formula": null, "warnings": []},
+    "text": "Hemerocallis 'Longfields X Factor'"
+  },
+  {
+    "note": "Hybrid formula of two cultivars",
+    "input": "Rosa 'Peace' × Rosa 'Kordes'",
+    "expect": {"formula": [{"genus": "Rosa", "cultivar": "Peace"}, {"genus": "Rosa", "cultivar": "Kordes"}]},
+    "text": "Rosa 'Peace' × Rosa 'Kordes'"
+  },
+  {
+    "note": "Empty string",
+    "input": "",
+    "parse": null
+  },
+  {
+    "note": "Only whitespace",
+    "input": "   ",
+    "parse": null
+  },
+  {
+    "note": "Not a name",
+    "input": "123 abc",
+    "parse": null
+  },
+  {
+    "note": "Only a cultivar, no genus",
+    "input": "'Blue Angel'",
+    "parse": null
+  }
+]
