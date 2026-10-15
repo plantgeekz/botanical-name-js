@@ -15,6 +15,12 @@ identification and collection app. Also available for PHP as
 [`plantgeekz/botanical-name`](https://github.com/plantgeekz/botanical-name-php); both
 packages run the same test fixtures and give byte-identical results.
 
+Package pages: [Packagist](https://packagist.org/packages/plantgeekz/botanical-name) ·
+[npm](https://www.npmjs.com/package/@plantgeekz_com/botanical-name) ·
+[JSR](https://jsr.io/@plantgeekz/botanical-name) ·
+Libraries.io ([PHP](https://libraries.io/packagist/plantgeekz%2Fbotanical-name),
+[JavaScript](https://libraries.io/npm/@plantgeekz_com%2Fbotanical-name)).
+
 ```ts
 import { parse, format, toHtml, slug, key } from '@plantgeekz_com/botanical-name';
 
