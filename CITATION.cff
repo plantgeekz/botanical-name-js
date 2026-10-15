@@ -11,8 +11,8 @@ authors:
     website: "https://plantgeekz.com"
     email: hi@plantgeekz.com
     country: DK
-version: 0.1.0
-date-released: "2026-09-15"
+version: 0.1.1
+date-released: "2026-10-15"
 license: MIT
 doi: 10.5281/zenodo.22765112
 identifiers:

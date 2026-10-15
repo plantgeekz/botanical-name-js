@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 - 2026-10-15
+
+- README links to every package page (Packagist, npm, JSR, Libraries.io).
+  No code changes.
+
 ## 0.1.0 - 2026-09-15
 
 First release.
