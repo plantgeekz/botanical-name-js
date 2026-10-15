@@ -1,0 +1,36 @@
+{
+  "title": "botanical-name (JavaScript/TypeScript): parse, normalize and format botanical plant names",
+  "description": "<p>Parse, normalize and format botanical plant names following the ICN and ICNCP: hybrids, infraspecific ranks, authors, cultivar groups, trade designations and cultivars, with correct italics in HTML. Zero dependencies.</p><p>Built for and used in production by <a href=\"https://plantgeekz.com\">PlantGeekz</a>, the plant identification and collection app. More open source from PlantGeekz: <a href=\"https://plantgeekz.com/open-source\">plantgeekz.com/open-source</a>.</p>",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "PlantGeekz"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "botany",
+    "plants",
+    "taxonomy",
+    "nomenclature",
+    "scientific names",
+    "cultivar",
+    "ICN",
+    "ICNCP",
+    "TypeScript"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://plantgeekz.com/open-source",
+      "relation": "isDocumentedBy",
+      "resource_type": "publication-softwaredocumentation",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/plantgeekz/botanical-name-php",
+      "relation": "isVariantFormOf",
+      "resource_type": "software",
+      "scheme": "url"
+    }
+  ]
+}
